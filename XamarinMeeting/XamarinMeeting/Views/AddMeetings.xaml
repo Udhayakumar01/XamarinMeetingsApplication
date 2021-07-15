@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMeeting.Views.AddMeetings"
+             
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             xmlns:viewModel="clr-namespace:XamarinMeeting.ViewModel"
+             xmlns:calendarEV="clr-namespace:XamarinMeeting.Views"
+             x:Name="AddMeetingPage">
+
+
+    <ContentPage.BindingContext>
+        <viewModel:AddMeeting/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="ic_add"
+            Command="{Binding AppointmentAddCommand}"/>
+        <ToolbarItem
+            IconImageSource="ic_delete"
+            Command="{Binding AppointmentDeleteCommand}"/>
+        
+        <ToolbarItem
+            IconImageSource="Logout.png" Clicked="ToolbarLogoutItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  HorizontalOptions = "Start" VerticalOptions = "Start">
+                <!--Image Source="Backg1.png" Aspect="Fill"/-->
+
+                <Label x:Name="lblRole" FontSize = "20"  TextColor="Black"
+                VerticalOptions = "CenterAndExpand" FontAttributes = "Bold"
+                HorizontalOptions = "CenterAndExpand"/>
+                <Button Text="Day and week view"
+                        Clicked="Btn_DayWeekViewClicked"/>
+
+                <StackLayout Padding="10">
+                    <controls:Calendar
+            x:Name="calendar"  DayTappedCommand="{Binding SelectedDate}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            AnimateCalendar="True"
+            Events="{Binding Events}"
+            SelectedDate="{Binding SelectedDate}"
+            SelectedDateColor="Blue"
+            SelectedDateTextFormat="ddd, dd MMM yyyy"
+            SwipeUpToHideEnabled="False">
+
+                        <controls:Calendar.HeaderSectionTemplate>
+                            <DataTemplate>
+                                <calendarEV:CalendarHeaderView/>
+                            </DataTemplate>
+                        </controls:Calendar.HeaderSectionTemplate>
+
+                        <controls:Calendar.FooterSectionTemplate>
+                            <DataTemplate>
+                                <calendarEV:CalendarFooterView/>
+                            </DataTemplate>
+                        </controls:Calendar.FooterSectionTemplate>
+
+                        <controls:Calendar.EventTemplate>
+                            <DataTemplate>
+                                <!--<calendarEV:CalendarEventView/>-->
+                                <StackLayout>
+                                    <Label
+		                            Text="{Binding InterviewerName,StringFormat='InterviewerName{0:F0}'}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center"/>
+
+                                    <Label
+		                            Text="{Binding OrganiserName,StringFormat='OrganiserName{0;F0}'}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center" />
+
+                                    <Label
+		                            Text="{Binding Email}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center" />
+
+                                    <Label
+		                            Text="{Binding Grade}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center" />
+
+
+                                    <Label
+		                            Text="{Binding AttendeeName}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center" />
+
+
+                                    <Label
+		                            Text="{Binding Tilte}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center" />
+
+
+                                    <Label
+                                    FontSize="16"
+                                    FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                Text="{Binding StartTime, StringFormat='{}{0:hh\\:mm}'}" />
+                                                <Span
+                                                Text=" - " />
+                                                <Span
+                                                Text="{Binding EndTime, StringFormat='{}{0:hh\\:mm}'} " />
+                                                <Span
+                                                Text=" "/>
+                                                <Span
+                                                Text="{Binding Title}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+
+                                    <Label
+		                            Text="{Binding Starttime}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center" />
+
+
+
+                                    <Label
+		                            Text="{Binding Endtime}"
+		                            FontSize="14"
+		                            HorizontalTextAlignment="Start"
+		                            VerticalTextAlignment="Center"/>
+
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.EventSelectedCommand, Source={x:Reference AddMeetingPage}}" CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </DataTemplate>
+
+                        </controls:Calendar.EventTemplate>
+
+
+                        <controls:Calendar.EmptyTemplate>
+                            <DataTemplate>
+                                <StackLayout
+						Padding="20,5">
+                                    <Label
+							Text="No Appointment for selected date"
+							FontSize="14"
+							HorizontalTextAlignment="Center"
+							VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </controls:Calendar.EmptyTemplate>
+
+                    </controls:Calendar>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

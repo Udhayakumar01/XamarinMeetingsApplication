@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "912870793564",
+    "project_id": "xamarinmeetingpushnotification",
+    "storage_bucket": "xamarinmeetingpushnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912870793564:android:01d36e431935d57de02199",
+        "android_client_info": {
+          "package_name": "com.companyname.xamarinmeeting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "912870793564-kh3d731d9qvbvrfpaq99fpenembtrkan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiwNu7sbSZHmHtUSNWeozqOulTh3uGz8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "912870793564-kh3d731d9qvbvrfpaq99fpenembtrkan.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:skiaSharp="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:local="clr-namespace:XamarinMeeting"
+             x:Class="XamarinMeeting.MainPage"
+             >
+
+    <ContentPage.Content>
+        <ScrollView>
+            
+            <StackLayout Orientation="Vertical" Spacing="40" Padding="30">
+                
+            <BoxView HeightRequest="10"/>
+            <Image Source="CagLogin1.jpg" HorizontalOptions="Center"  WidthRequest="300" />
+
+            <Frame BackgroundColor="#BF043055"  HasShadow="False" VerticalOptions="End">
+                    <Grid>
+                        
+                        <skiaSharp:SKCanvasView x:Name="_skCanvasView"
+                                            PaintSurface="SkCanvasViewPaintSurfaceRequested"
+                                            SizeChanged="SkCanvasViewSizeChanged"/>
+                        <StackLayout x:Name="_formLayout" Orientation="Vertical" Padding="15, 10, 15, 20" Spacing="10">
+
+                            <local:MyEntry x:Name="Email"  Placeholder="Email"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="White"
+                           Focused="EntryFocused"/>
+                            <local:MyEntry x:Name="Password" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="White"
+                           Focused="EntryFocused"/>
+                            <!--Entry x:Name="Role" Text="{Binding Role}" Placeholder="Role"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           
+                           TextColor="White"/>
+                    <Entry x:Name="Technology" Text="{Binding Technology}" Placeholder="Technology"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           
+                           TextColor="White"/!-->
+                            
+                        </StackLayout>
+                        
+                    </Grid>
+                
+                </Frame>
+                <Button  Text="Login" Style="{DynamicResource buttonStyle}" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                     Clicked="BtnLogin_Clicked"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Login to checkout the scheduled meetings or re-schedule a meeting" FontAttributes="Italic"/>
+            </StackLayout>
+                
+
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+   
+</ContentPage>

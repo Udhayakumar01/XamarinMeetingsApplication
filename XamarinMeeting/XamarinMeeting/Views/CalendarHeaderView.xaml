@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMeeting.Views.CalendarHeaderView"
+      Padding="30,10"
+	ColumnSpacing="10"
+	HorizontalOptions="FillAndExpand">
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition
+			Width="30" />
+        <ColumnDefinition
+			Width="*" />
+        <ColumnDefinition
+			Width="30" />
+    </Grid.ColumnDefinitions>
+    <Grid
+		Grid.Column="0">
+        <ImageButton
+			HeightRequest="24"
+			WidthRequest="24"
+			HorizontalOptions="Center"
+			VerticalOptions="Center"
+			Source="ic_previous"
+			Command="{Binding PrevMonthCommand}"
+			BackgroundColor="Transparent" />
+    </Grid>
+    <Label
+		Grid.Column="1"
+		TextColor="Red"
+		FontSize="Medium"
+		FontAttributes="Bold"
+		HorizontalTextAlignment="Center"
+		VerticalTextAlignment="Center">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span
+					Text="{Binding MonthText, Mode=TwoWay}" />
+                <Span
+					Text=", " />
+                <Span
+					Text="{Binding Year, Mode=TwoWay}" />
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+    <Grid
+		Grid.Column="2">
+        <ImageButton
+			HeightRequest="24"
+			WidthRequest="24"
+			HorizontalOptions="Center"
+			VerticalOptions="Center"
+			Source="ic_next"
+			Command="{Binding NextMonthCommand}"
+			BackgroundColor="Transparent" />
+    </Grid>
+
+</Grid>

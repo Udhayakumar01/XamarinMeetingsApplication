@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMeeting.Views.DeletePage"
+             Title="Delete Page">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+			IconImageSource="ic_close"
+			Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid
+			RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition
+					Height="*" />
+                <RowDefinition
+					Height="Auto" />
+            </Grid.RowDefinitions>
+            <ListView
+				x:Name="lstView"
+				Grid.Row="0"
+				SeparatorVisibility="None"
+				HasUnevenRows="True"
+				Header=""
+				ItemsSource="{Binding Meetings}">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout
+							Padding="15"
+							Orientation="Vertical">
+                            <Label
+								Text="Select an appointment to delete"
+								TextColor="Gray"
+								FontSize="13"
+								HorizontalTextAlignment="Start"
+								VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+								Padding="20,8"
+								ColumnSpacing="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+										Width="30" />
+                                    <ColumnDefinition
+										Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+									Grid.Column="0"
+									HeightRequest="20"
+									WidthRequest="20"
+									HorizontalOptions="Center"
+									VerticalOptions="Center"
+									Source="{Binding SelectedImage}" />
+                                <StackLayout
+									Grid.Column="1"
+									Spacing="5"
+									Orientation="Vertical">
+                                    <Label
+										FontSize="16"
+										FontAttributes="Bold">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+													Text="{Binding Date, StringFormat='{0:HH\\:mm}'}" />
+                                                <Span
+													Text=" - " />
+                                                <Span
+													Text="{Binding Title}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label
+										Text="{Binding Description}"
+										FontSize="14"
+										HorizontalTextAlignment="Start"
+										VerticalTextAlignment="Center" />
+                                </StackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+										Command="{Binding SelectedCommand}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid
+				Grid.Row="1"
+				Padding="20,0,20,20">
+                <Button
+					Text="Delete"
+					TextColor="White"
+					FontSize="14"
+					CornerRadius="3"
+					HeightRequest="40"
+					VerticalOptions="EndAndExpand"
+					Clicked="Delete_Clicked"
+					BackgroundColor="Teal" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

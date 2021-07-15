@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMeeting.Views.CalendarFooterView"
+             ColumnSpacing="10"
+	          Padding="10,0">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition
+			Width="*" />
+        <ColumnDefinition
+			Width="30" />
+    </Grid.ColumnDefinitions>
+    <Label
+		Grid.Column="0"
+		Text="{Binding SelectedDateText}"
+		TextColor="{Binding SelectedDateColor}"
+		FontAttributes="Bold"
+		FontSize="Medium"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+    <ImageButton
+		Grid.Column="1"
+		HeightRequest="30"
+		WidthRequest="30"
+		HorizontalOptions="Center"
+		VerticalOptions="Center"
+		Source="ic_arrow_up"
+		Command="{Binding ShowHideCalendarCommand}"
+		BackgroundColor="Transparent">
+        <ImageButton.Triggers>
+            <DataTrigger
+				Binding="{Binding CalendarSectionShown}"
+				TargetType="ImageButton"
+				Value="false">
+                <Setter
+					Property="Rotation"
+					Value="180" />
+            </DataTrigger>
+        </ImageButton.Triggers>
+    </ImageButton>
+</Grid>

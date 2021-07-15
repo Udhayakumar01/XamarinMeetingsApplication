@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+   
+    <StackLayout
+ xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMeeting.Views.CalendarEventView"
+              Padding="10,8"
+	          Spacing="5"
+	    Orientation="Vertical"
+        xmlns:AddmeetingVM="clr-namespace:XamarinMeeting.ViewModel">
+
+   
+            
+            <Label
+		Text="{Binding InterviewerName,StringFormat='INTERVIEWER NAME: {0:F0}'}"
+		FontSize="14" FontAttributes="Bold"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center"/>
+        
+    <Label
+		Text="{Binding OrganiserName,StringFormat='OrganiserName{0;F0}'}"
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+
+    <Label
+		Text="{Binding Email}"
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+
+    <Label
+		Text="{Binding Grade}"
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+
+
+    <Label
+		Text="{Binding AttendeeName}"
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+
+
+    <Label x:Name="MeetingTitle"
+		Text="{Binding Tilte}"
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+
+
+    <Label x:Name="MeetingDate"
+        FontSize="16"
+        FontAttributes="Bold">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span
+                    Text="{Binding StartTime, StringFormat='{}{0:hh\\:mm}'}"/>
+                <Span
+                    Text=" - " />
+                <Span
+                    Text="{Binding Title}" />
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+
+
+    <Label
+		Text="{Binding Starttime}"
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center" />
+
+
+
+    <Label
+		Text="{Binding Endtime}" 
+		FontSize="14"
+		HorizontalTextAlignment="Start"
+		VerticalTextAlignment="Center"/>
+   
+    
+</StackLayout>
